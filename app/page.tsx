@@ -1,9 +1,9 @@
-import { getServerSession } from "next-auth";
-import { authOptions } from "./utils/auth";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import LogoutButton from "@/components/logOutButton";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+import { getServerSession } from "next-auth"
+import { authOptions } from "./utils/auth"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import LogoutButton from "@/components/logoutButton"
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 export default async function Home() {
   const session = await getServerSession(authOptions)

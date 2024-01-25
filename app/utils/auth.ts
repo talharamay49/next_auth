@@ -6,9 +6,10 @@ import FacebookProvider from "next-auth/providers/facebook"
 import EmailProvider from "next-auth/providers/email"
 import { PrismaAdapter } from "@auth/prisma-adapter"
 import prisma from "./db"
+import { Adapter } from "next-auth/adapters"
 
 export const authOptions = {
-    adapter: PrismaAdapter(prisma),
+    adapter: PrismaAdapter(prisma) as Adapter,
     providers: [
         GoogleProvider({
             clientId: process.env.GOOGLE_CLIENT_ID as string,
