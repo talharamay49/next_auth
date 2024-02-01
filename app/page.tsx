@@ -1,40 +1,38 @@
 import { getServerSession } from "next-auth"
 import { authOptions } from "./utils/auth"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import LogoutButton from "@/components/logoutButton"
 import { Button } from "@/components/ui/button"
-import Link from "next/link"
+import LogInButton from "@/app/auth/components/logInButton"
+import Header from "./auth/components/header"
 
 export default async function Home() {
   const session = await getServerSession(authOptions)
   return (
-    <div className="w-screen h-screen flex items-center justify-center">
-      <Card>
-        <CardHeader>
-          <CardTitle>
-            Hello from index page
-          </CardTitle>
-          <CardDescription>
-            To Access the private page you have to be authenticated
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="capitalize">
-          {
-            session ?
-              <div className="flex flex-col w-full">
-                <p>you Are logged in</p>
-                <LogoutButton />
-              </div>
-              :
-              <div>
-                <p>please log in</p>
-                <Button variant="link" className="mt-4">
-                  <Link href="/auth">Log in</Link>
+    <Card className="space-y-6 ">
+      <CardHeader>
+        <CardTitle>
+          <Header label="A simple authentication service." />
+        </CardTitle>
+      </CardHeader>
+      <CardContent className="capitalize">
+        {
+          session ?
+            <div className="flex flex-col w-full">
+              <p>you Are logged in</p>
+              <LogoutButton />
+            </div>
+            :
+            <div>
+              <p>please log in</p>
+              <LogInButton>
+                <Button variant="default" className="mt-4 w-full">
+                  Log in
                 </Button>
-              </div>
-          }
-        </CardContent>
-      </Card>
-    </div>
+              </LogInButton>
+            </div>
+        }
+      </CardContent>
+    </Card>
   )
 }

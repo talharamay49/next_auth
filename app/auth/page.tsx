@@ -13,29 +13,26 @@ const AuthRoute = async () => {
     if (session) {
         return redirect("/")
     }
-    return (
-        <div className="w-screen h-screen flex items-center justify-center">
-            <Card>
-                <CardHeader>
-                    <CardTitle>
-                        Please Sign In
-                    </CardTitle>
-                    <CardDescription>
-                        To Access the private page you have to be authenticated
-                    </CardDescription>
-                </CardHeader>
-                <CardContent>
-                    <div className="flex flex-col">
-                        <SignInForm />
-                        <SignInWithGithub />
-                        <SignInWithGoogle />
-                        <SignInWithFacebook />
-                        <SignInWithInstagram />
-                    </div>
-                </CardContent>
-            </Card>
-        </div>
-    )
+    return <Card>
+        <CardHeader>
+            <CardTitle>
+                Please Sign In
+            </CardTitle>
+            <CardDescription>
+                To Access the private page you have to be authenticated
+            </CardDescription>
+        </CardHeader>
+        <CardContent>
+            <div className="flex flex-col">
+                <SignInForm />
+                <SignInWithGithub />
+                <SignInWithGoogle />
+                <SignInWithFacebook />
+                <SignInWithInstagram />
+            </div>
+        </CardContent>
+    </Card>
+
 }
 
 export default AuthRoute
