@@ -3,8 +3,8 @@ import { authOptions } from "./utils/auth"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import LogoutButton from "@/components/logoutButton"
 import { Button } from "@/components/ui/button"
-import LogInButton from "@/app/auth/components/logInButton"
-import Header from "./auth/components/header"
+import Header from "./(auth)/components/header"
+import LogInButton from "./(auth)/components/logInButton"
 
 export default async function Home() {
   const session = await getServerSession(authOptions)

@@ -11,7 +11,7 @@ interface LogInButtonProps {
 const LogInButton = ({ children, mode = "redirect", asChild }: LogInButtonProps) => {
   const router = useRouter()
   const onClickHandler = () => {
-    router.push("/auth")
+    router.push("/login")
   }
 
   if (mode == "modal") {
